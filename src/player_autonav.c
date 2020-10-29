@@ -49,23 +49,17 @@ static int player_autonavBrake (void);
  */
 void player_autonavResetSpeed (void)
 {
-   if (player_getSpeed() ==4){
-      tc_mod         = 4. * player_dt_default();
-      pause_setSpeed( tc_mod );
-      sound_setSpeed( 4 );
-   } else if (player_getSpeed() ==3){
-      tc_mod         = 3. * player_dt_default();
-      pause_setSpeed( tc_mod );
-      sound_setSpeed( 3 );
-   } else if (player_getSpeed() ==2){
-      tc_mod         = 2. * player_dt_default();
-      pause_setSpeed( tc_mod );
-      sound_setSpeed( 2 );
+  double speedDouble;
+   int speed = player_getSpeed();
+   if(speed >= 1 && speed <= 4){
+      speedDouble = (double)speed;
    } else {
-      tc_mod         = player_dt_default();
-      pause_setSpeed( tc_mod );
-      sound_setSpeed( 1 );
+      speedDouble = 1.;
+      player_setSpeed(1);
    }
+   tc_mod = speedDouble * player_dt_default();
+   pause_setSpeed( tc_mod );
+   sound_setSpeed( speed );
    tc_rampdown = 0;
 }
 
