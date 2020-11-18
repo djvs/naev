@@ -249,6 +249,12 @@ PKG_CHECK_MODULES([XML], [libxml-2.0])
 # FreeType
 PKG_CHECK_MODULES([FREETYPE], [freetype2])
 
+# Cairo
+PKG_CHECK_MODULES([CAIRO], [cairo])
+
+# Pango
+PKG_CHECK_MODULES([PANGO], [pango])
+
 # vorbis
 PKG_CHECK_MODULES([VORBIS], [vorbis])
 

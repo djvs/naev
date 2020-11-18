@@ -94,7 +94,9 @@ if buildExec.disabled() == false
          dependencies: dependency('libpng', required: true),
          compile_args: '-DNOLOGPRINTFCONSOLE',
          link_args: '-DNOLOGPRINTFCONSOLE'),
-      dependency('libxml-2.0', required: true)
+      dependency('libxml-2.0', required: true),
+      dependency('libcairo', required: true)
+      dependency('libpango-1.0', required: true)
    ]
 
    # Lua
